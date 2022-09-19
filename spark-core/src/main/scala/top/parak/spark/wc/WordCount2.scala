@@ -1,5 +1,6 @@
 package top.parak.spark.wc
 
+import io.netty.util.CharsetUtil
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD
 
@@ -13,7 +14,7 @@ object WordCount2 {
     var sparkConf: SparkConf = new SparkConf()
       .setAppName("WordCount")
       .setMaster("spark://127.0.0.1:17077")
-      .setJars(Array("/Users/zikang.chen/IdeaProjects/spark-learn/target/spark-learn-1.0-SNAPSHOT-jar-with-dependencies.jar"))
+      .setJars(Array("/Users/zikang.chen/IdeaProjects/spark-learn/spark-core/target/spark-core-1.0-SNAPSHOT-jar-with-dependencies.jar"))
 
     val sparkContext: SparkContext = new SparkContext(sparkConf)
 
@@ -41,6 +42,7 @@ object WordCount2 {
     val result: Array[(String, Int)] = wordToCount.collect()
     result.foreach(println)
 
+    CharsetUtil.UTF_8
     sparkContext.stop()
   }
 }

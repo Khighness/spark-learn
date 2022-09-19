@@ -17,7 +17,7 @@ object WordCount3 {
 
     val sparkContext: SparkContext = new SparkContext(sparkConf)
 
-    val lines: RDD[String] = sparkContext.textFile("/Users/zikang.chen/IdeaProjects/spark-learn/data")
+    val lines: RDD[String] = sparkContext.textFile("/Users/zikang.chen/IdeaProjects/spark-learn/data/word_count_*.txt")
 
     val words: RDD[String] = lines.flatMap(_.split(" "))
 

@@ -13,14 +13,14 @@ object WordCount1 {
     var sparkConf: SparkConf = new SparkConf()
       .setAppName("WordCount")
       .setMaster("spark://127.0.0.1:17077")
-      .setJars(Array("/Users/zikang.chen/IdeaProjects/spark-learn/target/spark-learn-1.0-SNAPSHOT-jar-with-dependencies.jar"))
+      .setJars(Array("/Users/zikang.chen/IdeaProjects/spark-learn/spark-core/target/spark-core-1.0-SNAPSHOT-jar-with-dependencies.jar"))
 
     // 2. 创建Spark上下文
     val sparkContext: SparkContext = new SparkContext(sparkConf)
 
     // 3. 业务操作
 
-    // 3.1 读取所有文件，获取一行一行的数据
+    // 3.1 读取所有文件，以行为单位读取数据
     val lines: RDD[String] = sparkContext.textFile("/Users/zikang.chen/IdeaProjects/spark-learn/data")
 
     // 3.2 将每一行拆解成单词
